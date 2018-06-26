@@ -32,16 +32,23 @@ router.get('/:id', async (req, res) => {
 });
 
 router.patch('/:id', async (req, res) => {
-  try{
+  try {
     const savedUser = await User.findByIdAndUpdate(req.params.id, req.body);
     res.send(savedUser)
-  } catch(err) {
+  } catch (err) {
     console.log(err);
   }
 });
 
-// router.delete('/:id', (req,res) => {
-
-// })
+router.delete('/:id', async (req, res) => {
+  try {
+    await User.findByIdAndRemove(req.params.id);
+    res.send({
+      msg: 'Successfully Deleted'
+    })
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;

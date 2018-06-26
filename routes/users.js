@@ -31,4 +31,17 @@ router.get('/:id', async (req, res) => {
   };
 });
 
+router.patch('/:id', async (req, res) => {
+  try{
+    const savedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+    res.send(savedUser)
+  } catch(err) {
+    console.log(err);
+  }
+});
+
+// router.delete('/:id', (req,res) => {
+
+// })
+
 module.exports = router;

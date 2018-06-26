@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const WantSchema = new Schema({
   flavor: String,
   maker: String,
+  nicotine: Number,
   imgUrl: {
     type: String,
     default: '#'
@@ -13,7 +14,9 @@ const WantSchema = new Schema({
 const HaveSchema = new Schema({
   flavor: String,
   maker: String,
-  estUsed: String,
+  nicotine: Number,
+  bottleSize: Number,
+  estUsed: Number,
   imgUrl: {
     type: String,
     default: '#'

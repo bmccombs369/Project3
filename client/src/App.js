@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 class App extends Component {
   render() {
     return (
-      <div>
-        APP
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={HomePage} />
+        </Switch>
+      </Router>
     );
   }
 }

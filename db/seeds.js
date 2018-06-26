@@ -29,7 +29,14 @@ User.remove({}).then(() => {
     haves: [cocoMumba]
   });
 
-  const users = [ben];
+  const hal = new User({
+    name: 'Hal',
+    location: 'Inman Park',
+    wants: [],
+    haves: []
+  })
+
+  const users = [ben, hal];
 
   return User.insertMany(users);
 

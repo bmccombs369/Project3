@@ -12,6 +12,16 @@ router.get('/', async (req, res) => {
   };
 });
 
+router.post('/', async (req, res) => {
+  try {
+    const newUser = req.body;
+    const savedUser = await User.create(newUser);
+    res.send(savedUser);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const user = await User.findById(req.params.id)

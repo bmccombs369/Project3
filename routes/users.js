@@ -1,24 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const {User} = require('../db/schema')
+const { User } = require('../db/schema')
 
 /* GET users listing. */
-router.get('/', (req, res) => {
-  User.find()
-  .then((users) => {
-    res.send(users); 
-  }).catch((err) => {
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find()
+    res.send(users);
+  } catch (err) {
     console.log(err);
-  });
+  };
 });
 
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id)
-  .then((user) => {
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id)
     res.send(user);
-  }).catch((err) => {
+  } catch (err) {
     console.log(err);
-  });
+  };
 });
 
 module.exports = router;

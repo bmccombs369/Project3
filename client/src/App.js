@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import HomePage from './components/HomePage'
+import LandingPage from './components/LandingPage'
+import UsersPage from './components/UsersPage'
 
 
 class App extends Component {
@@ -8,7 +9,8 @@ class App extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/' component={LandingPage} />
+          <Route exact path='/users' component={UsersPage} />
         </Switch>
       </Router>
     );

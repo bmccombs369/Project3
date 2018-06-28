@@ -18,6 +18,8 @@ connection.on('error', (err) => {
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const havesRouter = require('./routes/haves');
+// const wantsRouter = require('./routes/wants');
 
 const app = express();
 
@@ -28,7 +30,9 @@ app.use(cookieParser());
 app.use(express.static(__dirname + '/client/build/'));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/api/users', usersRouter);
+app.use('/api/users/:id/haves', havesRouter);
+// app.use('/api/users/:id/wants', wantsRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')

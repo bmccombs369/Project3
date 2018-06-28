@@ -31,7 +31,7 @@ app.use(express.static(__dirname + '/client/build/'));
 
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
-app.use('/api/users/:id/haves', havesRouter);
+app.use('/api/users/:userId/haves', havesRouter);
 // app.use('/api/users/:id/wants', wantsRouter);
 
 app.get('/', (req, res) => {

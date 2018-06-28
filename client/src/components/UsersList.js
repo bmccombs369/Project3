@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 class UsersList extends Component {
   render() {
@@ -9,7 +10,7 @@ class UsersList extends Component {
           return (
             <ul>
               <li>
-                {user.name}
+                <Link key={user._id} to={`/user/${user._id}`}>{user.name}</Link>
               </li>
             </ul>
           )

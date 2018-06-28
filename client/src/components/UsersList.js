@@ -10,7 +10,7 @@ class UsersList extends Component {
           return (
             <ul>
               <li>
-                <Link key={user._id} to={`/user/${user._id}`}>{user.name}</Link>
+                <Link key={user._id} to={`/users/${user._id}`}>{user.name}</Link>
               </li>
             </ul>
           )

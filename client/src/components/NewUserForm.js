@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import {Redirect} from 'react-router-dom'
 
 class NewUserForm extends Component {
   state = {
-      name: '',
-      location: ''
+    name: '',
+    location: ''
   };
 
   handleChange = (event) => {
@@ -22,11 +23,9 @@ class NewUserForm extends Component {
     axios.post('/api/users', this.state)
       .then((res) => {
         console.log(res.data);
-        this.componentDidMount()
-        // this.props.history.push(`/users/${res.data}`);
       });
   };
-  
+
   render() {
     return (
 

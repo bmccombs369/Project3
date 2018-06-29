@@ -21,18 +21,6 @@ class UsersPage extends Component {
       });
   };
 
-  deleteUser = (user) => {
-    // const users = [...this.state.users];
-    // users.splice(userToDelete, 1);
-    // this.setState({users});
-    const userId = this.state.users._id;
-    console.log(userId)
-    axios.delete(`/api/users/${userId}`)
-      .then(() => {
-        this.componentWillMount();
-      });
-  };
-
   render() {
     return (
       <div>
@@ -40,7 +28,10 @@ class UsersPage extends Component {
           users={this.state.users}
           deleteUser={this.deleteUser}
         />
-        <NewUserForm users={this.state.users} />
+        <NewUserForm
+          users={this.state.users}
+          getUsers={this.getUsers}
+        />
       </div>
     );
   };

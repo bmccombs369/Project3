@@ -45,7 +45,6 @@ class UsersPage extends Component {
         {this.state.newUserFromShowing
           ? <div>
             <NewUserForm
-              users={this.state.users}
               getUsers={this.getUsers}
             /> </div>
           : null}

@@ -6,11 +6,11 @@ import NewUserForm from './NewUserForm';
 class UsersPage extends Component {
   state = {
     users: []
-  }
+  };
 
   componentDidMount() {
     this.getUsers();
-  }
+  };
 
   getUsers = () => {
     axios.get('/api/users')
@@ -19,16 +19,31 @@ class UsersPage extends Component {
       }).catch((err) => {
         console.error(err);
       });
-  }
+  };
+
+  deleteUser = (user) => {
+    // const users = [...this.state.users];
+    // users.splice(userToDelete, 1);
+    // this.setState({users});
+    const userId = this.state.users._id;
+    console.log(userId)
+    axios.delete(`/api/users/${userId}`)
+      .then(() => {
+        this.componentWillMount();
+      });
+  };
 
   render() {
     return (
       <div>
-        <UsersList users={this.state.users} />
-        <NewUserForm />
+        <UsersList
+          users={this.state.users}
+          deleteUser={this.deleteUser}
+        />
+        <NewUserForm users={this.state.users} />
       </div>
     );
-  }
-}
+  };
+};
 
 export default UsersPage;

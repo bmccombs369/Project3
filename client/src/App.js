@@ -7,11 +7,14 @@ import UserProfile from './components/UserProfile';
 
 class App extends Component {
   render() {
+    const UsersPageComponent = (props) => {
+      return <UsersPage {...props} />
+    }
     return (
       <Router>
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/users' component={UsersPage} />
+          <Route exact path='/users' render={UsersPageComponent} />
           <Route path='/users/:userId' component={UserProfile} />
         </Switch>
       </Router>

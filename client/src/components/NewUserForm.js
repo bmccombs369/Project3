@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class NewUserForm extends Component {
   state = {
-    newUser: {
       name: '',
       location: ''
-    }
-  }
+  };
 
   handleChange = (event) => {
     const userInput = event.target.value;
@@ -16,26 +15,36 @@ class NewUserForm extends Component {
     const newState = { ...this.state };
     newState[inputName] = userInput;
     this.setState(newState);
-  }
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    axios.post('/api/users', this.state)
+      .then((res) => {
+        console.log(res.data);
+        this.componentDidMount()
+        // this.props.history.push(`/users/${res.data}`);
+      });
+  };
   
   render() {
     return (
 
       <div>
         <h3>Create A User</h3>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <input
             type='text'
             name='name'
             placeholder="User's Name"
-            value={this.state.newUser.name}
+            value={this.state.name}
             onChange={this.handleChange}
           />
           <input
             type='text'
             name='location'
             placeholder='Location'
-            value={this.state.newUser.location}
+            value={this.state.location}
             onChange={this.handleChange}
           />
 

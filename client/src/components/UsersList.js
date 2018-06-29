@@ -6,7 +6,7 @@ class UsersList extends Component {
   deleteUser = (userId) => {
     axios.delete(`/api/users/${userId}`)
       .then(() => {
-        console.log('deleted')
+        this.props.getUsers();
       });
   };
 

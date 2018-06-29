@@ -34,6 +34,7 @@ class UsersPage extends Component {
           <UsersList
             users={this.state.users}
             deleteUser={this.deleteUser}
+            getUsers={this.getUsers}
           />
         </div>
         <div>

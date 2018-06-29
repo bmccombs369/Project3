@@ -5,7 +5,8 @@ import NewUserForm from './NewUserForm';
 
 class UsersPage extends Component {
   state = {
-    users: []
+    users: [],
+    newUserFromShowing: false
   };
 
   componentDidMount() {
@@ -21,17 +22,32 @@ class UsersPage extends Component {
       });
   };
 
+  toggleNewUserForm = () => {
+    const form = !this.state.newUserFromShowing;
+    this.setState({ newUserFromShowing: form });
+  };
+
   render() {
     return (
       <div>
-        <UsersList
-          users={this.state.users}
-          deleteUser={this.deleteUser}
-        />
-        <NewUserForm
-          users={this.state.users}
-          getUsers={this.getUsers}
-        />
+        <div>
+          <UsersList
+            users={this.state.users}
+            deleteUser={this.deleteUser}
+          />
+        </div>
+        <div>
+          <button onClick={this.toggleNewUserForm}>
+            {this.state.newUserFromShowing ? 'Hide Form' : 'Add New User'}
+          </button>
+        </div>
+        {this.state.newUserFromShowing
+          ? <div>
+            <NewUserForm
+              users={this.state.users}
+              getUsers={this.getUsers}
+            /> </div>
+          : null}
       </div>
     );
   };

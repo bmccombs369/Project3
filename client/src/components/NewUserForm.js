@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class NewUserForm extends Component {
   state = {
@@ -23,6 +23,7 @@ class NewUserForm extends Component {
     axios.post('/api/users', this.state)
       .then((res) => {
         console.log(res.data);
+        this.props.getUsers();
       });
   };
 
@@ -32,20 +33,24 @@ class NewUserForm extends Component {
       <div>
         <h3>Create A User</h3>
         <form onSubmit={this.handleSubmit}>
-          <input
-            type='text'
-            name='name'
-            placeholder="User's Name"
-            value={this.state.name}
-            onChange={this.handleChange}
-          />
-          <input
-            type='text'
-            name='location'
-            placeholder='Location'
-            value={this.state.location}
-            onChange={this.handleChange}
-          />
+          <div>
+            <input
+              type='text'
+              name='name'
+              placeholder="User's Name"
+              value={this.state.name}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div>
+            <input
+              type='text'
+              name='location'
+              placeholder='Location'
+              value={this.state.location}
+              onChange={this.handleChange}
+            />
+          </div>
 
           <button type='submit'>Submit</button>
         </form>

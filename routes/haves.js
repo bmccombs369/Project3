@@ -1,14 +1,16 @@
 const express = require('express');
-const router = express.Router();
+const router = express.Router({mergeParams: true});
 const { User, Have } = require('../db/schema');
 
 /* GET users listing. */
 router.get('/', async (req, res) => {
   try {
+    console.log(req.params.userId);
     const user = await User.findById(req.params.userId);
     const haves = user.haves;
+    
     res.send(haves);
-  } catch (err) {
+  } catch (err) {[]
     res.send(err);
   }
 });
@@ -19,12 +21,13 @@ router.post('/', (req, res) => {
       const newHave = new Have(req.body);
       user.haves.push(newHave);
       return user.save();
-    }).catch((err) => res.send(err))
-    .then(savedUser => {
+    })
+    .then((savedUser) => {
       res.send({
         user: savedUser
-      })
     })
+  })
+    .catch((err) => res.send(err))
 })
 
 router.delete('/:id', (req, res) => {

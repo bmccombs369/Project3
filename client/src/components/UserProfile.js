@@ -3,18 +3,22 @@ import axios from 'axios';
 
 class UserProfile extends Component {
   state = {
-    user: {}
+    user: {},
+    haves: []
   };
 
   componentDidMount() {
-    this.getUser();
+    this.getUserAndHaves();
   };
 
-  getUser = () => {
+  getUserAndHaves = () => {
     const userId = this.props.match.params.userId;
     axios.get(`/api/users/${userId}`)
       .then((res) => {
-        this.setState({ user: res.data });
+        this.setState({
+          user: res.data,
+          haves: res.data.haves
+        });
       }).catch((err) => {
         console.error(err);
       });
@@ -27,15 +31,6 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.state.user.haves.map((have, index) => {
-            return (
-              <li>
-                {have.flavor}
-              </li>
-            )
-          })}
-        </ul>
         {/* {this.test()} */}
       </div>
     );

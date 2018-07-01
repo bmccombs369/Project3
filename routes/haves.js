@@ -8,7 +8,6 @@ router.get('/', async (req, res) => {
     console.log(req.params.userId);
     const user = await User.findById(req.params.userId);
     const haves = user.haves;
-    
     res.send(haves);
   } catch (err) {[]
     res.send(err);

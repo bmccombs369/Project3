@@ -4,7 +4,17 @@ class UserHaves extends Component {
   render() {
     return (
       <div>
-        UserHaves
+        <div>
+          <ul>
+            {this.props.haves.map((have, index) => {
+              return (
+                <li key={index}>
+                  {have.flavor}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

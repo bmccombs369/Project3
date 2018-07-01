@@ -7,20 +7,22 @@ class UserProfile extends Component {
   state = {
     user: {},
     haves: [],
+    wants: [],
     showingHaves: true
   };
 
   componentDidMount() {
-    this.getUserAndHaves();
+    this.getUserHavesAndWants();
   };
 
-  getUserAndHaves = () => {
+  getUserHavesAndWants = () => {
     const userId = this.props.match.params.userId;
     axios.get(`/api/users/${userId}`)
       .then((res) => {
         this.setState({
           user: res.data,
-          haves: res.data.haves
+          haves: res.data.haves,
+          wants: res.data.wants
         });
       }).catch((err) => {
         console.error(err);
@@ -38,10 +40,20 @@ class UserProfile extends Component {
         <h1>
           {this.state.user.name}'s Profile
         </h1>
-          <div>
-            <UserHaves />
-            <UserWants />
-          </div>
+        <div>
+          {this.state.showingHaves ?
+            <UserHaves
+              haves={this.state.haves}
+            /> :
+            <UserWants
+              wants={this.state.wants}
+            />}
+        </div>
+        <div>
+          <button onClick={this.toggleList}>
+            {this.state.showingHaves ? 'See Wants' : 'See Haves'}
+          </button>
+        </div>
       </div>
     );
   };

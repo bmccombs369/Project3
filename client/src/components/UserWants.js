@@ -4,7 +4,17 @@ class UserWants extends Component {
   render() {
     return (
       <div>
-        UserWants
+        <div>
+          <ul>
+            {this.props.wants.map((want, index) => {
+              return (
+                <li key={index}>
+                  {want.flavor}
+                </li>
+              )
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

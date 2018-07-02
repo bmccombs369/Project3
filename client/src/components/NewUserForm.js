@@ -10,8 +10,6 @@ class NewUserForm extends Component {
   handleChange = (event) => {
     const userInput = event.target.value;
     const inputName = event.target.name;
-    console.log(userInput);
-    console.log(inputName);
     const newState = { ...this.state };
     newState[inputName] = userInput;
     this.setState(newState);

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UserHaves from './UserHaves';
 import UserWants from './UserWants';
+import EditUserForm from './EditUserForm';
 
 class UserProfile extends Component {
   state = {
@@ -53,6 +54,9 @@ class UserProfile extends Component {
           <button onClick={this.toggleList}>
             {this.state.showingHaves ? 'See Wants' : 'See Haves'}
           </button>
+        </div>
+        <div>
+          <EditUserForm />
         </div>
       </div>
     );

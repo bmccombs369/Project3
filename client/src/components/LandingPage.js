@@ -27,7 +27,7 @@ class LandingPage extends Component {
     return (
       <Body>
         <Title>
-          <StyledLink to='/users'>Home Page</StyledLink>
+          <StyledLink to='/users'>Atlanta E-Juice Swap Meet</StyledLink>
         </Title>
       </Body>
     );

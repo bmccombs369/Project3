@@ -9,7 +9,8 @@ class UserProfile extends Component {
     user: {},
     haves: [],
     wants: [],
-    showingHaves: true
+    showingHaves: true,
+    editUserFormShowing: false,
   };
 
   componentDidMount() {
@@ -35,6 +36,11 @@ class UserProfile extends Component {
     this.setState({ showingHaves: currentList });
   };
 
+  toggleEditForm = () => {
+    const form = !this.state.editUserFormShowing;
+    this.setState({ editUserFormShowing: form });
+  }
+
   render() {
     return (
       <div>
@@ -56,7 +62,12 @@ class UserProfile extends Component {
           </button>
         </div>
         <div>
-          <EditUserForm />
+          {this.state.editUserFormShowing ? <EditUserForm /> : null}
+        </div>
+        <div>
+          <button onClick={this.toggleEditForm}>
+            {this.state.editUserFormShowing ? 'Hide Form' : 'Edit User Information'}
+          </button>
         </div>
       </div>
     );

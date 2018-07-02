@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UsersList from './UsersList';
 import NewUserForm from './NewUserForm';
-import styled, { injectGlobal } from 'styled-components';
+import { injectGlobal } from 'styled-components';
 
 injectGlobal`
 body {

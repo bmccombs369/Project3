@@ -40,8 +40,8 @@ class UserWants extends Component {
         <Page>
           {this.props.wants.map((want, index) => {
             return (
-              <CardContainer>
-                <Card key={index}>
+              <CardContainer key={index}>
+                <Card>
                   <StyledImg src={want.imgUrl} />
                   <Container>
                     <h4><b>{want.flavor}</b></h4>

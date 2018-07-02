@@ -40,8 +40,8 @@ class UserHaves extends Component {
         <Page>
           {this.props.haves.map((have, index) => {
             return (
-              <CardContainer>
-                <Card key={index}>
+              <CardContainer key={index}>
+                <Card>
                   <StyledImg src={have.imgUrl} />
                   <Container>
                     <h4><b>{have.flavor}</b></h4>

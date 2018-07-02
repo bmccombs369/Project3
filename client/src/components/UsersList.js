@@ -1,6 +1,24 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const Title = styled.div`
+  color: #C0C28F;
+  text-align: center;
+  font-size: 10vw;
+`
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: #E75035;
+  font-size: 8vw;
+`
+
+const DeleteButton = styled.button`
+  font-size: 8px;
+  color: #E75035;
+`
 
 class UsersList extends Component {
   deleteUser = (userId) => {
@@ -13,13 +31,13 @@ class UsersList extends Component {
   render() {
     return (
       <div>
-        <h1>Find a Trade Partner</h1>
+        <Title>Find a Trade Partner</Title>
         <ul>
           {this.props.users.map((user, index) => {
             return (
               <li key={index}>
-                <Link index={index} to={`/users/${user._id}`}>{user.name}</Link>
-                <button onClick={() => this.deleteUser(user._id)}>X</button>
+                <StyledLink index={index} to={`/users/${user._id}`}>{user.name}</StyledLink>&ensp;
+                <DeleteButton onClick={() => this.deleteUser(user._id)}>X</DeleteButton>
               </li>
             )
           })}

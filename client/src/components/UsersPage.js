@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UsersList from './UsersList';
 import NewUserForm from './NewUserForm';
-import { injectGlobal } from 'styled-components';
+import styled, { injectGlobal } from 'styled-components';
 
 injectGlobal`
 body {
   background-color: #5D6578;
 }
+`
+
+const AddUser = styled.div`
+  float: right;
+`
+
+const AddUserToggle = styled.button`
+  background-color: #FFCD58;
+  border: 2px solid #FFCD58;
+  font-size: 2vw;
 `
 
 class UsersPage extends Component {
@@ -44,18 +54,20 @@ class UsersPage extends Component {
             getUsers={this.getUsers}
           />
         </div>
-        <div>
-          <button onClick={this.toggleNewUserForm}>
-            {this.state.newUserFromShowing ? 'Hide Form' : 'Add New User'}
-          </button>
-        </div>
-        {this.state.newUserFromShowing
-          ? <div>
-            <NewUserForm
-              getUsers={this.getUsers}
-            />
+        <AddUser>
+          <div>
+            <AddUserToggle onClick={this.toggleNewUserForm}>
+              {this.state.newUserFromShowing ? 'Hide Form' : 'Join The Swap Meet'}
+            </AddUserToggle>
           </div>
-          : null}
+          {this.state.newUserFromShowing
+            ? <div>
+              <NewUserForm
+                getUsers={this.getUsers}
+              />
+            </div>
+            : null}
+        </AddUser>
       </div>
     );
   };

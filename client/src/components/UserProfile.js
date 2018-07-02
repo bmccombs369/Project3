@@ -22,6 +22,19 @@ const UsersLink = styled(Link)`
   color: #FFCD58;
 `
 
+const HavesToggle = styled.button`
+  background-color: #E09899;
+  border: 2px solid #E09899;
+  font-size: 2vw;
+`
+
+const EditToggle  = styled.button`
+  background-color: #E09899;
+  border: 2px solid #E09899;
+  font-size: 2vw;
+  float: right;
+`
+
 class UserProfile extends Component {
   state = {
     user: {},
@@ -78,17 +91,17 @@ class UserProfile extends Component {
             />}
         </div>
         <div>
-          <button onClick={this.toggleList}>
+          <HavesToggle onClick={this.toggleList}>
             {this.state.showingHaves ? 'See Wants' : 'See Haves'}
-          </button>
+          </HavesToggle>
         </div>
         <div>
           {this.state.editUserFormShowing ? <EditUserForm user={this.state.user} /> : null}
         </div>
         <div>
-          <button onClick={this.toggleEditForm}>
+          <EditToggle onClick={this.toggleEditForm}>
             {this.state.editUserFormShowing ? 'Hide Form' : 'Edit User Information'}
-          </button>
+          </EditToggle>
         </div>
       </div>
     );

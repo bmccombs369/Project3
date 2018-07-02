@@ -53,7 +53,8 @@ class UsersPage extends Component {
           ? <div>
             <NewUserForm
               getUsers={this.getUsers}
-            /> </div>
+            />
+          </div>
           : null}
       </div>
     );

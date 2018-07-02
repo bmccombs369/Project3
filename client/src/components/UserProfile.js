@@ -62,7 +62,7 @@ class UserProfile extends Component {
           </button>
         </div>
         <div>
-          {this.state.editUserFormShowing ? <EditUserForm /> : null}
+          {this.state.editUserFormShowing ? <EditUserForm user={this.state.user} /> : null}
         </div>
         <div>
           <button onClick={this.toggleEditForm}>

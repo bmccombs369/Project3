@@ -9,12 +9,15 @@ const Card = styled.div`
 
 const Container = styled.div`
   padding: 5px 16px;
+  text-align: center;
 `
 
 const CardContainer = styled.div`
   padding: 5px 16px;
   height: 33%;
   width: 40%;
+  color: #BFC289;
+  font-size: 2vw;
 `
 
 const StyledImg = styled.img`
@@ -23,8 +26,8 @@ const StyledImg = styled.img`
 `
 
 const Page = styled.div`
-display: flex;
-justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 `
 
 class UserHaves extends Component {

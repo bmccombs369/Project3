@@ -6,7 +6,7 @@ import EditUserForm from './EditUserForm';
 import styled from 'styled-components';
 
 const Title = styled.div`
-  color: #C0C28F;
+  color: #E75035;
   text-align: center;
   font-size: 10vw;
 `

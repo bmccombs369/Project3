@@ -8,7 +8,13 @@ const Card = styled.div`
 `
 
 const Container = styled.div`
-  padding: 2px 16px;
+  padding: 5px 16px;
+`
+
+const CardContainer = styled.div`
+  padding: 5px 16px;
+  height: 33%;
+  width: 50%;
 `
 
 const StyledImg = styled.img`
@@ -16,14 +22,18 @@ const StyledImg = styled.img`
   border-radius: 5px 5px 0 0;
 `
 
+const Page = styled.div`
+display: flex;
+`
+
 class UserWants extends Component {
   render() {
     return (
       <div>
-        <div>
+        <Page>
           {this.props.wants.map((want, index) => {
             return (
-              <Container>
+              <CardContainer>
                 <Card key={index}>
                   <StyledImg src={want.imgUrl} />
                   <Container>
@@ -32,10 +42,10 @@ class UserWants extends Component {
                     <p>Nicotine: {want.nicotine} ml</p>
                   </Container>
                 </Card>
-              </Container>
+              </CardContainer>
             )
           })}
-        </div>
+        </Page>
       </div>
     );
   }

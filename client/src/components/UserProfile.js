@@ -45,7 +45,7 @@ class UserProfile extends Component {
     return (
       <div>
         <h1>
-          {this.state.user.name}'s Profile
+          {this.state.user.name}'s {this.state.showingHaves ? 'Haves' : 'Wants'}
         </h1>
         <div>
           {this.state.showingHaves ?

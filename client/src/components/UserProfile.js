@@ -3,6 +3,13 @@ import axios from 'axios';
 import UserHaves from './UserHaves';
 import UserWants from './UserWants';
 import EditUserForm from './EditUserForm';
+import styled from 'styled-components';
+
+const Title = styled.div`
+  color: #C0C28F;
+  text-align: center;
+  font-size: 10vw;
+`
 
 class UserProfile extends Component {
   state = {
@@ -44,9 +51,9 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <h1>
+        <Title>
           {this.state.user.name}'s {this.state.showingHaves ? 'Haves' : 'Wants'}
-        </h1>
+        </Title>
         <div>
           {this.state.showingHaves ?
             <UserHaves

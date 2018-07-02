@@ -15,6 +15,14 @@ User.remove({}).then(() => {
     imgUrl: 'https://bombsauceeliquid.com/wp-content/uploads/2017/04/IMG_6724-1024x683.jpg'
   });
 
+  const bajaBreeze = new Have({
+    imgUrl: 'https://cdn6.bigcommerce.com/s-ls5jvj13/products/80/images/295/_SH12153-Edit__63186.1476135758.500.500.jpg?c=2',
+    flavor: 'Baja Breeze',
+    maker: 'Vaporham Lincoln',
+    nicotine: 3,
+    estUsed: 15
+  })
+
   const puckerberry = new Want({
     flavor: 'Puckerberry',
     maker: 'Atlas Vapor',
@@ -22,18 +30,25 @@ User.remove({}).then(() => {
     imgUrl: 'https://www.atlasvapor.com/wp-content/uploads/2014/08/puck-2.jpg'
   });
 
+  const banana = new Want({
+    imgUrl: 'https://glasvapor.com/pub/media/catalog/product/cache/image/1000x1240/e9c3970ab036de70892d86c6d221abfe/b/a/basix-60ml-banana-cream-pie-3000x3000-no-logo_4_6.jpg',
+    flavor: 'Banana Cream Pie',
+    maker: 'Glas Vapor',
+    nicotine: 3
+  })
+
   const ben = new User({
     name: 'Ben',
     location: 'Sandy Springs',
-    wants: [puckerberry],
-    haves: [cocoMumba]
+    wants: [puckerberry, banana],
+    haves: [cocoMumba, bajaBreeze]
   });
 
   const hal = new User({
     name: 'Hal',
     location: 'Inman Park',
     wants: [],
-    haves: []
+    haves: [banana]
   })
 
   const users = [ben, hal];

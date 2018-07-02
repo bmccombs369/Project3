@@ -3,12 +3,23 @@ import axios from 'axios';
 import UserHaves from './UserHaves';
 import UserWants from './UserWants';
 import EditUserForm from './EditUserForm';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+const Header = styled.div`
+  text-align: center;
+`
 
 const Title = styled.div`
   color: #E75035;
-  text-align: center;
   font-size: 10vw;
+`
+
+const UsersLink = styled(Link)`
+  text-align: center;
+  text-decoration: none;
+  font-size: 3vw;
+  color: #FFCD58;
 `
 
 class UserProfile extends Component {
@@ -51,9 +62,12 @@ class UserProfile extends Component {
   render() {
     return (
       <div>
-        <Title>
-          {this.state.user.name}'s {this.state.showingHaves ? 'Haves' : 'Wants'}
-        </Title>
+        <Header>
+          <Title>
+            {this.state.user.name}'s {this.state.showingHaves ? 'Haves' : 'Wants'}
+          </Title>
+          <UsersLink to='/users'>See More Users</UsersLink>
+        </Header>
         <div>
           {this.state.showingHaves ?
             <UserHaves

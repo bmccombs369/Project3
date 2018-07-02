@@ -2,6 +2,10 @@
   "name": "project3",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "npm": "6.1.0",
+    "node": "10.0.0"
+  },
   "scripts": {
     "start": "node ./bin/www",
     "dev": "concurrently \"nodemon bin/www\" \"cd ./client  && npm start \" ",

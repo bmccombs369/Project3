@@ -5,11 +5,10 @@ const { User, Have } = require('../db/schema');
 /* GET users listing. */
 router.get('/', async (req, res) => {
   try {
-    console.log(req.params.userId);
     const user = await User.findById(req.params.userId);
     const haves = user.haves;
     res.send(haves);
-  } catch (err) {[]
+  } catch (err) {
     res.send(err);
   }
 });

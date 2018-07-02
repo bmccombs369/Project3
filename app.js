@@ -19,7 +19,7 @@ connection.on('error', (err) => {
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const havesRouter = require('./routes/haves');
-// const wantsRouter = require('./routes/wants');
+const wantsRouter = require('./routes/wants');
 
 const app = express();
 
@@ -32,7 +32,7 @@ app.use(express.static(__dirname + '/client/build/'));
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/users/:userId/haves', havesRouter);
-// app.use('/api/users/:id/wants', wantsRouter);
+app.use('/api/users/:userId/wants', wantsRouter);
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/client/build/index.html')

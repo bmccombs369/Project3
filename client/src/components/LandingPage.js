@@ -9,11 +9,11 @@ const Title = styled.h1`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: white;
+  /* color: white; */
 `
 
 const Body = styled.div`
-  background-image: url('http://yesofcorsa.com/wp-content/uploads/2017/01/Vape-Wallpaper-Free-Download.jpg');
+  /* background-image: url('http://yesofcorsa.com/wp-content/uploads/2017/01/Vape-Wallpaper-Free-Download.jpg'); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

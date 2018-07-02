@@ -14,7 +14,7 @@ const Container = styled.div`
 const CardContainer = styled.div`
   padding: 5px 16px;
   height: 33%;
-  width: 50%;
+  width: 25%;
 `
 
 const StyledImg = styled.img`

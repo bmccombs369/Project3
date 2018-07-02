@@ -14,17 +14,17 @@ const Container = styled.div`
 const CardContainer = styled.div`
   padding: 5px 16px;
   height: 33%;
-  width: 50%;
+  width: 40%;
 `
 
 const StyledImg = styled.img`
   width: 100%;
-  height: 285px;
   border-radius: 5px 5px 0 0;
 `
 
 const Page = styled.div`
 display: flex;
+justify-content: space-around;
 `
 
 class UserHaves extends Component {

@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UsersList from './UsersList';
 import NewUserForm from './NewUserForm';
+import styled, { injectGlobal } from 'styled-components';
+
+injectGlobal`
+body {
+  background-color: #5D6578;
+}
+`
 
 class UsersPage extends Component {
   state = {
